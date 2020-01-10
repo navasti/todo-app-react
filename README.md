@@ -1,3 +1,9 @@
+# To-do app
+This project is an application that allows you to enter tasks and to manage them. This project was written in react.js library and is based on the mobile first principle. 
+
+
+## CRA
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
