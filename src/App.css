@@ -57,12 +57,35 @@ body{
   height: 5rem;
   background-color: #aaa;
   font-size: 1.8rem;
-  cursor: pointer;
+  transition: .3s linear;
 }
-.fa-search{position: relative; z-index: 5; top: 2rem; left: 1rem; color: #280101;}
+#search-mobile.active{
+  width: 20rem;
+  height: 3.5rem;
+  border-radius: 0%;
+  transform: translate(-1.5rem, 1.5rem);
+}
+#search-mobile #mobile-input{display: none;}
+#search-mobile.active #mobile-input{
+  display: block;
+  position: absolute;
+  top: 50%; right: 1rem; transform: translateY(-50%);
+  width: 15rem;
+  height: 80%;
+  padding: 0 .5rem;
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: 1px solid #280101;
+}
+#search-mobile.active .fa-search{top: 50%; transform: translateY(-50%)}
+.fa-search{position: relative; z-index: 5; top: 1.8rem; left: .6rem; color: #280101; cursor: pointer;padding: .5rem;}
+
+/* tasks */
+
 .tasks{display: flex; flex-direction: column;width: 100%;}
 .tasks h3{text-align: center; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 1px;}
 .done h3{margin-top: 3rem;}
+.undone ul li span{display: flex; align-items: center;}
 .undone ul,
 .done ul{
   border: 1px solid rgba(255,255,255,.4);
@@ -73,17 +96,19 @@ body{
   min-height: 10rem;
   border-radius: .5rem;
 }
-.tasks li{display: flex; justify-content: space-between;}
-.tasks ul #undoBtn,
-.tasks ul #doneBtn{ padding-left: 1.5rem; color: #FF98FF; text-transform: uppercase; font-size: 1.5rem; cursor: pointer;}
+.tasks li{display: flex; justify-content: space-between; align-items: center;}
+.tasks ul .undoBtn,
+.tasks ul .doneBtn{ padding-left: 1.5rem; color: #FF98FF; text-transform: uppercase; font-size: 1.5rem; cursor: pointer;}
 .done ul .doneTask{text-decoration: line-through;}
 #clearBtn{
   font-size: 1.6rem; 
-  text-align: right; 
+  display: inline-block;
   text-transform: uppercase;
   letter-spacing: 1px;
+  cursor: pointer;
   padding: 1rem .5rem;
 }
+.fa-star{font-size: 1.1rem; padding-right: .3rem;}
 @media (min-width: 550px){
   #container{padding: 1.5rem 3rem;}
 }
@@ -100,6 +125,7 @@ body{
   .tasks ul #undoBtn,
   .tasks ul #doneBtn{ font-size: 1.8rem;}
   #clearBtn{font-size: 1.8rem;}
+  .fa-star{font-size: 1.4rem;}
 }
 /* desktop */
 @media (min-width: 1024px){
@@ -109,6 +135,7 @@ body{
     display: block;
     position: relative;
     top: 8.5rem;
+    height: 5rem;
     flex-basis: 45%;
   }
   #search-desktop input{
