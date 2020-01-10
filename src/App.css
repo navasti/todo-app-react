@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+html{font-size: 10px;}
+body{
+  background: linear-gradient(119.36deg, #2B2020 0%, #280101 100%);
   min-height: 100vh;
+  width: 100%;
+}
+#container{
+  color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-
-.App-link {
-  color: #61dafb;
+#search-desktop{display:none;}
+.add-task{width: 100%; position: relative; margin-top: 3rem;}
+.add-task h1{font-size: 2.6rem; letter-spacing: 1px;}
+.add-task input{
+  padding: .6rem 1rem;
+  width: 100%;
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  border-radius: .5rem;
+  border: none;
+  outline: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.important {display: flex; align-items: center; justify-content: space-between;}
+.important h2{font-size: 2.4rem;}
+.important p{font-size: 2.1rem; text-transform: uppercase;}
+#yesBtn,
+#noBtn{cursor: pointer;}
+#addBtn{
+  padding: .8rem 1.5rem; 
+  text-transform: uppercase; 
+  background: transparent; 
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.4);
+  color: #fff;
+  font-size: 2rem;
+  border-radius: .5rem;
+  margin: 1.5rem 0 5rem 0;
+  letter-spacing: 1px;
+}
+#search-mobile{
+  position: absolute;
+  top: -1.5rem; right: -1.5rem;
+  border-radius: 50%;
+  width: 5rem; 
+  height: 5rem;
+  background-color: #aaa;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.fa-search{position: relative; z-index: 5; top: 2rem; left: 1rem; color: #280101;}
+.tasks{display: flex; flex-direction: column;width: 100%;}
+.tasks h3{text-align: center; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 1px;}
+.done h3{margin-top: 3rem;}
+.undone ul,
+.done ul{
+  border: 1px solid rgba(255,255,255,.4);
+  padding: .6rem 1rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  min-height: 10rem;
+  border-radius: .5rem;
+}
+.tasks li{display: flex; justify-content: space-between;}
+.tasks ul #undoBtn,
+.tasks ul #doneBtn{ padding-left: 1.5rem; color: #FF98FF; text-transform: uppercase; font-size: 1.5rem; cursor: pointer;}
+.done ul .doneTask{text-decoration: line-through;}
+#clearBtn{
+  font-size: 1.6rem; 
+  text-align: right; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem .5rem;
+}
+@media (min-width: 550px){
+  #container{padding: 1.5rem 3rem;}
+}
+/* tablets */
+@media (min-width: 765px){
+  .add-task h1{font-size: 3rem;}
+  .add-task input{padding: 1rem 1.5rem; margin: 2rem 0;}
+  .important h2{font-size: 2.8rem;}
+  .important p{font-size: 2.5rem;}
+  #addBtn{padding: 1rem 2rem; font-size: 2.4rem; margin: 2rem 0 6rem 0;}
+  .tasks h3{font-size: 2.4rem;}
+  .undone ul,
+  .done ul{min-height: 20rem; font-size: 2rem;}
+  .tasks ul #undoBtn,
+  .tasks ul #doneBtn{ font-size: 1.8rem;}
+  #clearBtn{font-size: 1.8rem;}
+}
+/* desktop */
+@media (min-width: 1024px){
+  .add-desktop{display: flex; justify-content: space-between;}
+  .add-task{flex-basis: 45%;}
+  #search-desktop{
+    display: block;
+    position: relative;
+    top: 8.5rem;
+    flex-basis: 45%;
   }
-  to {
-    transform: rotate(360deg);
+  #search-desktop input{
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: right;
   }
+  .tasks{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .tasks h3{font-size: 3rem; margin-bottom: 2rem;}
+  .done h3{margin-top: 0;}
+  .done,
+  .undone{flex-basis: 45%;}
+  .undone ul,
+  .done ul{font-size: 2.2rem;}
+  #search-mobile{display: none;}
 }
+@media (min-width: 1440px){
+  #container{width: 80%; margin: 0 auto;}
+};
